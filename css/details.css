@@ -1,0 +1,311 @@
+/* Main Content */
+main {
+    flex: 1;
+    padding: 2rem 1rem;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Page Header */
+.page-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.page-title {
+    font-size: clamp(2rem, 4vw, 3rem);
+    color: #DFD0B8;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.page-subtitle {
+    font-size: 1rem;
+    color: #948979;
+    opacity: 0.9;
+}
+
+/* Filter Section */
+.filter-section {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    padding: 0.6rem 1.5rem;
+    background: #393E46;
+    border: 1px solid #948979;
+    border-radius: 15px;
+    color: #DFD0B8;
+    font-weight: 600;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+    background: #948979;
+    color: #222831;
+    border-color: #DFD0B8;
+}
+
+/* Songs Grid */
+.songs-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 1.5rem;
+}
+
+.song-detail-card {
+    background: #393E46;
+    border: 1px solid #948979;
+    border-radius: 10px;
+    padding: 1.5rem;
+    display: none;
+    min-height: 450px; /* Ensure consistent height across cards */
+    max-width: 350px; /* Prevent stretching beyond intended width */
+    width: 100%; /* Ensure it takes full width of grid cell */
+    box-sizing: border-box; /* Include padding and border in width */
+}
+
+.song-detail-card.show {
+    display: block;
+}
+
+/* Song Header */
+.song-header {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    align-items: center;
+}
+
+.song-cover {
+    width: 100px; /* Standardize to match Pop cards */
+    height: 100px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.song-cover img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.song-info h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #DFD0B8;
+    margin-bottom: 0.3rem;
+}
+
+.song-info .artist {
+    font-size: 1rem;
+    color: #948979;
+    margin-bottom: 0.5rem;
+}
+
+.genre-tag {
+    display: inline-block;
+    background: #948979;
+    color: #222831;
+    padding: 0.2rem 0.8rem;
+    border-radius: 10px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+/* Song Description */
+.song-description {
+    margin-bottom: 1.5rem;
+}
+
+.song-description h4 {
+    font-size: 1.2rem;
+    color: #DFD0B8;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.song-description p {
+    color: #DFD0B8;
+    line-height: 1.5;
+    opacity: 0.9;
+}
+
+/* Lyrics Section */
+.lyrics-section {
+    margin-bottom: 1.5rem;
+}
+
+.lyrics-section h4 {
+    font-size: 1.2rem;
+    color: #DFD0B8;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.lyrics-content {
+    background: #222831;
+    border-radius: 8px;
+    padding: 1rem;
+    border-left: 3px solid #948979;
+    max-height: 150px;
+    overflow-y: auto;
+}
+
+.lyrics-content p {
+    color: #DFD0B8;
+    line-height: 1.6;
+    font-style: italic;
+    opacity: 0.9;
+}
+
+.lyrics-content pre {
+    color: #DFD0B8;
+    line-height: 1.8;
+    font-style: italic;
+    opacity: 0.9;
+    margin: 0;
+    white-space: pre-wrap;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.95rem;
+    text-align: left;
+}
+
+
+.lyrics-content::-webkit-scrollbar {
+    width: 8px;
+}
+.lyrics-content::-webkit-scrollbar-track {
+    background: #222831;
+    border-radius: 8px;
+}
+.lyrics-content::-webkit-scrollbar-thumb {
+    background: #948979;
+    border-radius: 8px;
+}
+.lyrics-content::-webkit-scrollbar-thumb:hover {
+    background: #DFD0B8;
+}
+.lyrics-content.collapsed {
+    max-height: 60px;
+    overflow: hidden;
+}
+.lyrics-content.expanded {
+    max-height: 150px;
+    overflow-y: auto;
+}
+.toggle-lyrics-btn {
+    background: #948979;
+    color: #222831;
+    border: none;
+    border-radius: 10px;
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 0.5rem;
+    transition: all 0.3s ease;
+}
+.toggle-lyrics-btn:hover {
+    background: #DFD0B8;
+    transform: translateY(-2px);
+}
+/* Audio Section */
+.audio-section {
+    text-align: center;
+}
+
+.audio-section h4 {
+    font-size: 1.2rem;
+    color: #DFD0B8;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.audio-player {
+    background: #222831;
+    border: 1px solid #393E46;
+    border-radius: 8px;
+    padding: 0.5rem;
+    width: 100%;
+}
+
+audio {
+    width: 100%;
+    background: #222831;
+    border: none;
+    color-scheme: dark;
+    accent-color: #948979;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .songs-container {
+        grid-template-columns: 1fr;
+    }
+
+    .song-header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .song-cover {
+        width: 80px;
+        height: 80px;
+    }
+
+    .song-detail-card {
+        min-height: 400px; /* Adjusted for smaller screens */
+        max-width: 100%; /* Allow full width on smaller screens */
+    }
+
+    .filter-section {
+        gap: 0.3rem;
+    }
+
+    .filter-btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.7rem;
+    }
+
+    main {
+        padding: 1.5rem 0.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .song-cover {
+        width: 60px;
+        height: 60px;
+    }
+
+    .song-info h3 {
+        font-size: 1.3rem;
+    }
+
+    .song-info .artist {
+        font-size: 0.9rem;
+    }
+
+    .song-detail-card {
+        min-height: 350px; /* Adjusted for smaller screens */
+    }
+}
