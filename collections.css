@@ -1,0 +1,315 @@
+/* Main Section Styles */
+main {
+    flex: 1;
+    padding: 4rem 2rem; /* Padding default untuk desktop */
+}
+
+/* General Container for Centering Content */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Page Header Section */
+.page-header {
+    text-align: center;
+    margin-bottom: 4rem; /* Jarak bawah untuk desktop */
+}
+
+/* Page Title */
+.page-title {
+    font-size: clamp(2.5rem, 5vw, 4rem); /* Ukuran font responsif */
+    color: #ffffff;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    text-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Page Subtitle */
+.page-subtitle {
+    font-size: clamp(1rem, 2vw, 1.2rem); /* Ukuran font responsif */
+    color: #DFD0B8;
+    font-weight: 300;
+    opacity: 0.9;
+}
+
+/* Genre Cards Grid */
+.genre-cards {
+    display: grid;
+    /* auto-fit dengan minmax untuk menyesuaikan kolom secara fleksibel */
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+/* Individual Genre Card */
+.genre-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px); /* Efek blur yang bagus */
+    border-radius: 20px;
+    padding: 2rem;
+    text-align: center;
+    /* Transisi dioptimalkan untuk properti yang berubah */
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    border: 1px solid rgba(223, 208, 184, 0.1);
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    will-change: transform; /* Memberi tahu browser tentang perubahan transform */
+    contain: layout style; /* Mengisolasi elemen untuk kinerja */
+}
+
+/* Pseudo-element for hover effect (optimized with opacity and transform) */
+.genre-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(223, 208, 184, 0.1), transparent);
+    transform: translateX(-100%);
+    transition: transform 0.6s ease, opacity 0.6s ease; /* Tambahkan transisi opacity */
+    opacity: 0; /* Mulai dengan opacity 0 */
+    will-change: transform, opacity;
+    z-index: 0; /* Pastikan di bawah konten utama */
+}
+
+.genre-card:hover::before {
+    transform: translateX(100%);
+    opacity: 1; /* Tampilkan saat hover */
+}
+
+.genre-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    border-color: rgba(223, 208, 184, 0.3);
+}
+
+/* Genre Icon */
+.genre-icon {
+    font-size: 4rem;
+    margin-bottom: 1.5rem;
+    display: block;
+    will-change: auto; /* Optimasi rendering icon */
+    position: relative; /* Pastikan ikon di atas pseudo-element */
+    z-index: 1;
+}
+
+/* Color classes for icons */
+.pop-icon {
+    color: #ff6b6b;
+}
+
+.rnb-icon {
+    color: #4ecdc4;
+}
+
+.kpop-icon {
+    color: #ffe66d;
+}
+
+/* Genre Title */
+.genre-title {
+    font-size: clamp(1.6rem, 3vw, 2rem); /* Ukuran font responsif */
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 1rem;
+    position: relative;
+    z-index: 1;
+}
+
+/* Genre Description */
+.genre-description {
+    color: #DFD0B8;
+    font-size: clamp(0.9rem, 1.5vw, 1rem); /* Ukuran font responsif */
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+    position: relative;
+    z-index: 1;
+}
+
+/* Explore Button */
+.explore-btn {
+    background: linear-gradient(45deg, transparent, rgba(223, 208, 184, 0.1));
+    border: 2px solid #DFD0B8;
+    color: #DFD0B8;
+    padding: 12px 30px;
+    border-radius: 25px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    cursor: pointer;
+    transition: transform 0.3s ease, background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+    will-change: transform;
+    transform: translate3d(0, 0, 0); /* Memaksa hardware acceleration */
+    position: relative;
+    z-index: 1;
+}
+
+.explore-btn:hover {
+    background: linear-gradient(45deg, #DFD0B8, #948979);
+    color: #1a1a2e;
+    transform: translate3d(0, -5px, 0); /* Efek angkat yang sedikit lebih jelas */
+    box-shadow: 0 10px 25px rgba(223, 208, 184, 0.3);
+}
+
+/* --- Media Queries for Responsiveness --- */
+
+/* Tablet & Mobile Landscape */
+@media (max-width: 992px) {
+    main {
+        padding: 3rem 1.5rem; /* Kurangi padding utama */
+    }
+
+    .genre-cards {
+        gap: 1.5rem; /* Kurangi jarak antar kartu */
+    }
+
+    .genre-card {
+        padding: 1.5rem; /* Kurangi padding kartu */
+    }
+
+    .genre-icon {
+        font-size: 3.5rem; /* Ukuran ikon sedikit lebih kecil */
+        margin-bottom: 1rem;
+    }
+
+    .genre-title {
+        font-size: clamp(1.4rem, 2.5vw, 1.8rem); /* Sesuaikan ukuran font judul genre */
+    }
+
+    .genre-description {
+        font-size: clamp(0.85rem, 1.3vw, 0.95rem); /* Sesuaikan ukuran font deskripsi */
+    }
+}
+
+/* Mobile Portrait */
+@media (max-width: 768px) {
+    main {
+        padding: 2rem 1rem; /* Padding lebih kecil untuk mobile */
+    }
+
+    .page-header {
+        margin-bottom: 3rem; /* Jarak bawah header lebih kecil */
+    }
+
+    .page-title {
+        font-size: clamp(2rem, 8vw, 3rem); /* Ukuran font judul halaman lebih dinamis */
+    }
+
+    .page-subtitle {
+        font-size: clamp(1rem, 3vw, 1.1rem); /* Ukuran font subtitle lebih dinamis */
+    }
+
+    .genre-cards {
+        grid-template-columns: 1fr; /* Satu kolom untuk mobile */
+        gap: 1.5rem;
+    }
+
+    .genre-card {
+        padding: 1.5rem 1.2rem; /* Sesuaikan padding kartu untuk mobile */
+        backdrop-filter: blur(5px); /* Kurangi efek blur untuk performa mobile */
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Kurangi bayangan */
+    }
+
+    .genre-card:hover {
+        transform: translateY(-5px); /* Efek hover lebih halus di mobile */
+        box-shadow: 0 12px 25px rgba(0, 0, 0, 0.25); /* Bayangan hover lebih halus */
+    }
+
+    .genre-icon {
+        font-size: 3rem; /* Ukuran ikon lebih kecil di mobile */
+        margin-bottom: 0.8rem;
+    }
+
+    .genre-title {
+        font-size: clamp(1.2rem, 4.5vw, 1.6rem); /* Ukuran font judul genre lebih kecil */
+    }
+
+    .genre-description {
+        font-size: clamp(0.8rem, 2.5vw, 0.9rem); /* Ukuran font deskripsi lebih kecil */
+        margin-bottom: 1.5rem;
+    }
+
+    .explore-btn {
+        padding: 10px 25px; /* Padding tombol lebih kecil */
+        font-size: 0.9rem; /* Ukuran font tombol lebih kecil */
+    }
+
+    .explore-btn:hover {
+        transform: translateY(-3px); /* Efek hover tombol lebih halus */
+        box-shadow: 0 6px 18px rgba(223, 208, 184, 0.25); /* Bayangan hover tombol lebih halus */
+    }
+
+    /* Penyesuaian khusus untuk pseudo-element di mobile jika terlalu intens */
+    .genre-card::before {
+        transition: transform 0.4s ease, opacity 0.4s ease; /* Transisi lebih cepat */
+    }
+}
+
+/* Very Small Mobile Phones */
+@media (max-width: 480px) {
+    main {
+        padding: 1.5rem 0.8rem; /* Padding minimal untuk layar sangat kecil */
+    }
+
+    .page-header {
+        margin-bottom: 2rem;
+    }
+
+    .page-title {
+        font-size: clamp(1.8rem, 9vw, 2.5rem);
+    }
+
+    .page-subtitle {
+        font-size: clamp(0.9rem, 3.5vw, 1rem);
+    }
+
+    .genre-card {
+        padding: 1.2rem;
+    }
+
+    .genre-icon {
+        font-size: 2.5rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .genre-title {
+        font-size: clamp(1.1rem, 5vw, 1.4rem);
+    }
+
+    .genre-description {
+        font-size: clamp(0.75rem, 3vw, 0.85rem);
+        margin-bottom: 1rem;
+    }
+
+    .explore-btn {
+        padding: 8px 20px;
+        font-size: 0.8rem;
+    }
+}
+
+/* Media query for users preferring reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    .genre-card,
+    .genre-card::before,
+    .explore-btn {
+        transition: none !important; /* Nonaktifkan semua transisi */
+    }
+
+    .genre-card:hover {
+        transform: none !important;
+        box-shadow: none !important;
+        border-color: rgba(223, 208, 184, 0.1) !important;
+    }
+
+    .explore-btn:hover {
+        transform: none !important;
+        box-shadow: none !important;
+    }
+}
